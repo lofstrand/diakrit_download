@@ -1,10 +1,17 @@
-## 📄 **Image Downloader Script Documentation**
+# 📄 **Image Downloader Script Documentation**
 
-### 🚀 **Overview**
+## 🚀 **Overview**
 
-The **Image Downloader Script** is a flexible Python tool designed to download images from the Diakrit backend based on a specific `orderId`. It supports multiple image file extensions, allows selective removal of query parameters (`width`, `height`, `watermark`), enables parallel downloads for efficiency, and includes logging capabilities for monitoring and debugging.
+The **Image Downloader Script** is a versatile Python tool designed to download images from the Diakrit backend based on a specific `orderId`. It offers flexibility in selecting image file extensions, selectively removing query parameters, enabling parallel downloads for efficiency, and logging download activities for tracking and debugging.
 
-### 🌟 **Features**
+## ⚠️ **Disclaimer**
+
+**Important:**  
+_The images may only be used for private use. The usage rights may not be transferred/licensed to others._
+
+\*_Ensure that you have the necessary permissions and rights to download and use these images. Unauthorized use or distribution may violate legal agreements and terms of service._
+
+## 🌟 **Features**
 
 - **Specify Order ID Separately**: Easily provide the `orderId` without modifying the base URL.
 - **Support Multiple File Extensions**: Download images with various extensions such as `.jpg` and `.png`.
@@ -16,7 +23,7 @@ The **Image Downloader Script** is a flexible Python tool designed to download i
 - **Logging**: Enable detailed logging to monitor and debug download activities.
 - **Progress Bar**: Visualize download progress in real-time using `tqdm`.
 
-### 🛠 **Installation**
+## 🛠 **Installation**
 
 1. **Ensure Python 3.x is Installed**
 
@@ -48,21 +55,21 @@ The **Image Downloader Script** is a flexible Python tool designed to download i
    pip3 install requests beautifulsoup4 tqdm tenacity
    ```
 
-### 📖 **Usage**
+## 📖 **Usage**
 
 Run the script using the command line, providing the necessary arguments and options.
 
-#### **Syntax**
+### **Syntax**
 
 ```bash
 python download_images.py ORDER_ID [options]
 ```
 
-#### **Positional Arguments**
+### **Positional Arguments**
 
 - `ORDER_ID`: The unique identifier for the order whose images you want to download.
 
-#### **Optional Arguments**
+### **Optional Arguments**
 
 | **Flag**                 | **Description**                                                           | **Example**                     |
 | ------------------------ | ------------------------------------------------------------------------- | ------------------------------- |
@@ -75,21 +82,21 @@ python download_images.py ORDER_ID [options]
 | `-p`, `--parallel`       | Enable parallel downloads using multithreading.                           | `-p`                            |
 | `-l`, `--log`            | Enable logging to `image_downloader.log`.                                 | `-l`                            |
 
-#### **Examples**
+### **Examples**
 
 1. **Download `.jpg` Images with All Query Parameters**
 
    ```bash
-   python download_images.py 13011948
+   python download_images.py 12345678
    ```
 
-   - **Behavior**: Downloads all `.jpg` images associated with `orderId=13011948`, including all query parameters.
+   - **Behavior**: Downloads all `.jpg` images associated with `orderId=12345678`, including all query parameters.
    - **Output Directory**: `downloaded_images`
 
 2. **Download `.jpg` and `.png` Images, Removing `watermark` and `width`**
 
    ```bash
-   python download_images.py 13011948 -e .jpg .png --raw_image --no_watermark
+   python download_images.py 12345678 -e .jpg .png --raw_image --no_watermark
    ```
 
    - **Behavior**: Downloads both `.jpg` and `.png` images, removing `width`, `height`, and `watermark` from the URLs.
@@ -98,7 +105,7 @@ python download_images.py ORDER_ID [options]
 3. **Download Images to a Custom Directory with Parallel Downloads and Logging**
 
    ```bash
-   python download_images.py 13011948 -e .jpg .png --raw_image --no_watermark -o my_images -p -l
+   python download_images.py 12345678 -e .jpg .png --raw_image --no_watermark -o my_images -p -l
    ```
 
    - **Behavior**: Downloads images as specified, saves them to `my_images`, enables parallel downloading, and logs activities.
@@ -108,7 +115,7 @@ python download_images.py ORDER_ID [options]
 4. **Remove Additional Query Parameters**
 
    ```bash
-   python download_images.py 13011948 -e .jpg .png --remove_params foo bar
+   python download_images.py 12345678 -e .jpg .png --remove_params foo bar
    ```
 
    - **Behavior**: Downloads `.jpg` and `.png` images, removing `foo` and `bar` query parameters from the URLs.

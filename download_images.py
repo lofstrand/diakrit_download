@@ -265,6 +265,14 @@ def main():
                       "Chrome/117.0.0.0 Safari/537.36"
     }
 
+    # Print Disclaimer
+    print("\n⚠️  Disclaimer:")
+    print("The images may only be used for private use. The usage rights may not be transferred/licensed to others.\n")
+    print("Ensure that you have the necessary permissions and rights to download and use these images. Unauthorized use or distribution may violate legal agreements and terms of service.")
+    
+    if enable_logging:
+        logger.info("Printed disclaimer to console.")
+
     print(f"Fetching HTML content from: {page_url}")
     if enable_logging:
         logger.info(f"Fetching HTML content from: {page_url}")
@@ -295,7 +303,7 @@ def main():
 
     # Extract image URLs with the specified criteria
     image_urls = extract_image_urls(html_content, base_url, extensions, remove_params)
-    print(f"Found {len(image_urls)} unique image URLs.")
+    print(f"Found {len(image_urls)} unique image URL{'s' if len(image_urls) !=1 else ''}.")
     if enable_logging:
         logger.info(f"Found {len(image_urls)} image URLs.")
 
